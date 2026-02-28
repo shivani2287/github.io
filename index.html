@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shivani Sharma — Cloud Architect </title>
+<title>Shivani Sharma — Cloud Architect</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -490,6 +490,56 @@
     color: #7a6658;
   }
 
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    cursor: none;
+  }
+  .project-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+  }
+  .project-card:hover { border-color: rgba(184,124,90,0.4); transform: translateY(-4px); }
+  .project-card:hover::after { transform: scaleX(1); }
+  .project-card-header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .project-icon { font-size: 1.75rem; }
+  .project-github-icon {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s;
+  }
+  .project-card:hover .project-github-icon { color: var(--accent); }
+  .project-card h3 { font-family: var(--heading-font); font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
+  .project-card p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); flex: 1; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
   /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
@@ -583,6 +633,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#certifications">Certs</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -817,6 +868,83 @@
   </div>
 </section>
 
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Open Source</div>
+  <h2 class="section-title reveal">GitHub Projects</h2>
+  <div class="projects-grid">
+
+    <a href="https://github.com/sharmshivani/order-microservice" target="_blank" rel="noopener" class="project-card reveal">
+      <div class="project-card-header">
+        <div class="project-icon">🛒</div>
+        <span class="project-github-icon">⬡ GitHub ↗</span>
+      </div>
+      <h3>Order Microservice</h3>
+      <p>Production-ready .NET 8 Web API with CQRS-lite, Azure Service Bus event publishing, EF Core, repository pattern, xUnit tests, and GitHub Actions CI/CD to Azure Container Apps.</p>
+      <div class="project-tags">
+        <span class="tag">.NET 8</span>
+        <span class="tag">Azure Service Bus</span>
+        <span class="tag">Container Apps</span>
+        <span class="tag">EF Core</span>
+        <span class="tag">xUnit</span>
+        <span class="tag">Docker</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/sharmshivani/payment-microservice" target="_blank" rel="noopener" class="project-card reveal">
+      <div class="project-card-header">
+        <div class="project-icon">💳</div>
+        <span class="project-github-icon">⬡ GitHub ↗</span>
+      </div>
+      <h3>Payment Microservice</h3>
+      <p>Event-driven payment service that listens to OrderCreated events via Service Bus, processes payments, handles refunds, and publishes PaymentProcessed/Failed events back — fully decoupled from Order Service.</p>
+      <div class="project-tags">
+        <span class="tag">.NET 8</span>
+        <span class="tag">Service Bus</span>
+        <span class="tag">Idempotency</span>
+        <span class="tag">Refunds</span>
+        <span class="tag">Audit Trail</span>
+        <span class="tag">Background Service</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/sharmshivani/azure-terraform-modules" target="_blank" rel="noopener" class="project-card reveal">
+      <div class="project-card-header">
+        <div class="project-icon">🏗️</div>
+        <span class="project-github-icon">⬡ GitHub ↗</span>
+      </div>
+      <h3>Terraform Azure Modules</h3>
+      <p>Reusable Terraform modules for deploying Azure Container Apps with autoscaling, Service Bus with topics & dead-letter queues, and Azure SQL with AAD auth — wired together in dev/prod environment configs.</p>
+      <div class="project-tags">
+        <span class="tag">Terraform</span>
+        <span class="tag">Container Apps</span>
+        <span class="tag">Service Bus</span>
+        <span class="tag">Azure SQL</span>
+        <span class="tag">Managed Identity</span>
+        <span class="tag">IaC</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/sharmshivani/azure-functions-starter" target="_blank" rel="noopener" class="project-card reveal">
+      <div class="project-card-header">
+        <div class="project-icon">⚡</div>
+        <span class="project-github-icon">⬡ GitHub ↗</span>
+      </div>
+      <h3>Azure Functions Starter</h3>
+      <p>Serverless event processors in both C# and Python — Service Bus triggers, Blob Storage processor with output bindings, Event Grid handler with event-type routing, and pytest/xUnit test suites.</p>
+      <div class="project-tags">
+        <span class="tag">Azure Functions</span>
+        <span class="tag">C#</span>
+        <span class="tag">Python</span>
+        <span class="tag">Event Grid</span>
+        <span class="tag">Blob Storage</span>
+        <span class="tag">Serverless</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-label">Let's connect</div>
@@ -897,12 +1025,4 @@
     });
   }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
 
-  revealEls.forEach(el => observer.observe(el));
-
-  // Fallback: reveal everything after 1.5s in case observer doesn't fire (e.g. iframe/preview)
-  setTimeout(() => {
-    revealEls.forEach(el => el.classList.add('visible'));
-  }, 1500);
-</script>
-</body>
-</html>
+  revealEls.
